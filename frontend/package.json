@@ -1,0 +1,17 @@
+{
+  "name": "placekitten-browser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Håkon Antonsen <hakon.antonsen@telia.no>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel --https public/index.html",
+    "build": "parcel build public/index.html"
+  },
+  "dependencies": {
+    "parcel": "^1.12.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
+  }
+}
