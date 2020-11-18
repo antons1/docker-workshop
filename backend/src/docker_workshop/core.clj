@@ -6,7 +6,7 @@
 (defonce server (atom nil))
 
 (defn start! []
-  (reset! server (j/run-jetty #'app {:port 3000 :join? false})))
+  (reset! server (j/run-jetty #'app {:port 3001 :join? true})))
 
 (defn stop! []
   (.stop @server))

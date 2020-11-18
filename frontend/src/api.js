@@ -1,27 +1,29 @@
-import { v4 as uuid } from 'uuid';
-
-//GetKittens (localStorage)
+//GetKittens (backend)
 export function getKittens() {
-    const kittens = window.localStorage.getItem("kittens");
-    return JSON.parse(kittens || "[]");
+    return fetch("//localhost:3001/kittens").then((res) => res.json()).catch((err) => console.log(err));
 }
 
-//StoreKitten (localStorage)
+//StoreKitten (backend)
 export function storeKitten({ url, comment }) {
-    const kittens = getKittens();
-    kittens.push({ id: uuid(), url, comment });
-    window.localStorage.setItem("kittens", JSON.stringify(kittens));
+    return fetch("//localhost:3001/kitten", {
+        method: "POST",
+        body: JSON.stringify({ url, comment }),
+        headers: { "Content-Type": "application/json" }
+    }).then((res) => res.json())
+    .catch((err) => console.log(err));
 }
 
-//DeleteKitten (localStorage)
+//DeleteKitten (backend)
 export function deleteKitten(id) {
-    const kittens = getKittens();
-    const modifiedKittens = kittens.filter((kitten) => kitten.id !== id);
-    window.localStorage.setItem("kittens", JSON.stringify(modifiedKittens));
+    return fetch(`//localhost:3001/kitten/${id}`, {
+        method: "DELETE"
+    }).then((res) => res.json())
+    .catch((err) => console.log(err));
 }
 
+//GetKitten (backend)
 export function getKitten(id) {
-    const kittens = getKittens();
-    const [kitten] = kittens.filter((kitten) => kitten.id === id);
-    return kitten;
+    return fetch(`//localhost:3001/kitten/${id}`)
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 }

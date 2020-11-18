@@ -5,7 +5,10 @@ import { getKittens } from '../api';
 import "./kitten-list.scss";
 
 export function KittenList({}) {
-    const kittens = getKittens();
+    const [kittens, setKittens] = React.useState([]);
+    React.useEffect(() => {
+        getKittens().then(setKittens);
+    }, [])
 
     return (
         <div>

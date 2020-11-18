@@ -4,11 +4,16 @@ import { deleteKitten, getKitten } from '../api';
 
 export function Kitten({}) {
     const params = useParams("/kittens/:id");
-    const kitten = getKitten(params.id);
+    const [kitten, setKitten] = React.useState({});
+
+    React.useEffect(() => {
+        getKitten(params.id).then(setKitten);
+    }, []);
 
     function removeKitten() {
-        deleteKitten(params.id);
-        window.location = "/kittens";
+        deleteKitten(params.id).then(() => {
+            window.location = "/kittens";
+        });
     }
 
     return (
