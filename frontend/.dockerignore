@@ -7,3 +7,4 @@
 !*.js
 !package.json
 !yarn.lock
+!kittens.conf
