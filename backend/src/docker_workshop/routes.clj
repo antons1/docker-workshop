@@ -20,7 +20,9 @@
 
 (defroutes app-routes
            (GET "/kittens" [] (api-response (kittens/get-all)))
-           (GET "/kitten/:id" [id] (api-response (kittens/get id)))
+           (GET "/kitten/:id" [id] (if-let [kitten (kittens/get id)]
+                                     (api-response kitten)
+                                     (api-response {} 404)))
            (POST "/kitten" {json :body} (api-response (kittens/add json)))
            (DELETE "/kitten/:id" [id] (api-response (kittens/remove id)))
            (route/not-found "Not Found"))

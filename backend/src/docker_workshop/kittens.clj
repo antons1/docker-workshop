@@ -1,4 +1,5 @@
 (ns docker-workshop.kittens
+  (:require [docker-workshop.db :as db])
   (:import (java.util UUID)))
 
 (defonce kittens (atom {}))
@@ -6,19 +7,19 @@
 (defn add [{ :keys [url, comment]}]
   (let [id (.toString (UUID/randomUUID))
         kitten {:url url :comment comment :id id}]
-    (swap! kittens #(assoc % (keyword id) kitten))
+    (db/write-kitten kitten)
     kitten))
 
 (defn get [id]
-  ((keyword id) @kittens))
+  (db/get-kitten id))
 
 (defn remove [id]
   (let [kitten (get id)]
-    (swap! kittens #(dissoc % (keyword id)))
+    (db/delete-kitten id)
     kitten))
 
 (defn get-all []
-  (or (-> @kittens vals) []))
+  (db/get-kittens))
 
 
 
@@ -27,7 +28,7 @@
   (remove {:id "6dd98845-e20a-4576-9e5b-b3b25ac332f7"})
   (add {:url "placekitten.org" :comment "This is cute"})
   (get-all)
-  (get "9976949f-fab1-46c6-b3ab-c859462048f8")
+  (get "f01b71eb-d454-4b7c-8c49-e4afb11ac13e")
 
   (->> @kittens
        (filter
