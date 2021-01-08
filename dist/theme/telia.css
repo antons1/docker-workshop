@@ -29,7 +29,12 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
       display: block; }
     .person-gallery .mugshot .name {
       text-align: center;
-      font-size: 1rem; }
+      font-size: 1rem;
+      font-family: "pebble", Helvetica, sans-serif; }
+    .person-gallery .mugshot .title {
+      text-align: center;
+      font-size: .8rem;
+      color: #6e6e6e; }
 
 /*********************************************
  * GLOBAL STYLES
