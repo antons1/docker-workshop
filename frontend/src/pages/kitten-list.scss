@@ -1,0 +1,30 @@
+.kitten-list {
+    padding: 0;
+    margin: 2rem auto auto auto;
+    list-style: none;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 0 0 2rem 0;
+
+        & > * {
+            display: inline-block;
+            width: 33%;
+        }
+    }
+
+    &__link {
+        color: inherit;
+
+        &:visited {
+            color: inherit;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
