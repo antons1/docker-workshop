@@ -1,0 +1,9 @@
+*
+
+!public/
+!src/
+!*.jsx
+!*.scss
+!*.js
+!package.json
+!yarn.lock

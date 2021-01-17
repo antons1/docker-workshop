@@ -1,0 +1,29 @@
+.selector {
+    text-align: center;
+}
+
+.selector-button {
+    border: solid 1px #f2f2f2;
+    border-radius: 5%;
+    background-color: #fff;
+    padding: 2rem;
+    margin: 2rem 2rem 2rem 0;
+
+    &:hover {
+        background-color: #f2f2f2;
+    }
+
+    &--green {
+        background-color: lightgreen;
+        &:hover {
+            background-color: green;
+        }
+    }
+
+    &--red {
+        background-color: lightcoral;
+        &:hover {
+            background-color: red;
+        }
+    }
+}
