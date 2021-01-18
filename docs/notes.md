@@ -1,41 +1,26 @@
 ## Intro
 
-* What is the problem
-    - Running in the same environment
-    - Dependencies
-    - Deployment
-    - Documentation
-* What is Docker for?
-* How does it solve the problem
-    - Same environment
-    - Dockerfile is documentation
+* What is docker
+    * Package and deploy apps
+* Why docker
+    * Package & deploy needed
+    * Uniform interface
+    * Standard runtime
+    * Built-in run several apps
+    * Uniform environment
 
 ## How does docker work
 
-* Isolation
-* Running on the host
-* Docker engine
-* CLI
-* Containers
-* Networks
-* Volumes
-* Images
-    - Layers
-* Dockerfiles
+* Dockerfile -> Image -> Container
+* Runs isolated - file system, processes, network etc.
+* Docker Daemon runs the containers, interface through CLI
 
-## How do we use docker
+## Begin Demo
 
-* `docker`
-* Dockerfile
-    - FROM
-    - COPY
-    - RUN
-    - EXPOSE
-    - ENTRYPOINT
-    - CMD
-    - WORKDIR
-* `docker image`
-* `docker container`
+* URL to clone code
+* Describe app
+* Describe folder structure
+* Show finished product
 
 ## Step 1 - Containerize an app
 
@@ -55,6 +40,9 @@
     - List dockerfile commands
     - List app commands
 * End: Show how to do it
+* Write dockerfile
+* Build image (remember -image in name)
+* Run container (remeber -it args)
 
 ## Step 2 - Run several apps
 
